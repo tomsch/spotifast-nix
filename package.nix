@@ -8,6 +8,7 @@
   copyDesktopItems,
   makeDesktopItem,
   imagemagick,
+  cacert,
   dbus,
   alsa-lib,
   libpulseaudio,
@@ -67,7 +68,16 @@ rustPlatform.buildRustPackage (finalAttrs: {
   ];
 
   # Branding integration tests start a private bus with dbus-run-session.
-  nativeCheckInputs = [ dbus ];
+  # librespot's rustls-native-certs tests need a real CA bundle; Nix's build
+  # sandbox otherwise points SSL_CERT_FILE at /no-cert-file.crt.
+  nativeCheckInputs = [
+    cacert
+    dbus
+  ];
+
+  preCheck = ''
+    export SSL_CERT_FILE=${cacert}/etc/ssl/certs/ca-bundle.crt
+  '';
 
   # librespot's rodio audio backend links ALSA and PulseAudio (which covers
   # PipeWire) directly; projectM links OpenGL and uses X11 headers.
