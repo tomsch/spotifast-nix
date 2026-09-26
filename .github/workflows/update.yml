@@ -47,7 +47,9 @@ jobs:
         if: steps.check.outputs.needs_update == 'true'
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: ./update.sh --no-build
+        run: |
+          nix flake update nixpkgs --accept-flake-config
+          ./update.sh --no-build
 
       - name: Test build
         if: steps.check.outputs.needs_update == 'true'
@@ -59,7 +61,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add package.nix Cargo.lock
+          git add package.nix Cargo.lock flake.lock
           git commit -m "Update spotifast to ${{ steps.check.outputs.latest }}"
           git push
 

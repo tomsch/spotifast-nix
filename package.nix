@@ -23,19 +23,21 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "spotifast";
-  version = "0.10.1";
+  version = "0.10.2";
 
   src = fetchFromGitHub {
     owner = "crmne";
     repo = "spotifast";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-rLyzvv7eJSHbzJdwx0iuwk5MHXWHHneGTOkpUQwIGAg=";
+    hash = "sha256-Ppl8b80bN8QaingaTh1PObL7lzh5ws7ag11C7J4HKIk=";
   };
 
   cargoLock = {
     lockFile = ./Cargo.lock;
     outputHashes = {
-      "dpi-0.1.1" = "sha256-KEO4Rc+lF2NkY0oxH12DcX8dY0L5M7j52n0SAlelzRI=";
+      "dpi-0.1.1" = "sha256-Sic86eBZ97SFgOWwXcML0MwQAFTxLWZL1cY+yQU43MY=";
+      "ecolor-0.36.1" = "sha256-uzNVqMeYdLI9jqvPxdsmOkJC17GiPWU0BpJ+aqDz5RM=";
+      "fastframe-fonts-0.1.0" = "sha256-kLp/tVRPbwlrsk98Qio/8q4WO9g9I1YNcFyBfhh7Yb0=";
       "hyper-proxy2-0.1.0" = "sha256-eyTslearajU7p/BfcSDByf/KbCeu+09WPwoJNr/7x6M=";
       "librespot-audio-0.8.0" = "sha256-AmkclmWd51y2HAsmKKkWcr+kcWvJXJIob5zVmuE2K1Y=";
       "projectm-sys-1.2.3" = "sha256-btM3/MJ3jP3fvmdYO23sOiELhfpl2tPGnPVOZp4phIM=";
