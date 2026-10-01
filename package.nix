@@ -23,19 +23,19 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "spotifast";
-  version = "0.11.1";
+  version = "0.11.2";
 
   src = fetchFromGitHub {
     owner = "crmne";
     repo = "spotifast";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-IILqc05hM1jCZekFbJZqsgpviAg4rwHT4ofObuTQeiA=";
+    hash = "sha256-4hseXK3dvXL6fBNDuQ2sq8wrtpRqSRZPErgCixPdt50=";
   };
 
   cargoLock = {
     lockFile = ./Cargo.lock;
     outputHashes = {
-      "dpi-0.1.1" = "sha256-Sic86eBZ97SFgOWwXcML0MwQAFTxLWZL1cY+yQU43MY=";
+      "dpi-0.1.1" = "sha256-JDMY4rnmfar/6wvzRHVPi7tH5wYGeTDd3KvkftQAEtc=";
       "ecolor-0.36.1" = "sha256-uzNVqMeYdLI9jqvPxdsmOkJC17GiPWU0BpJ+aqDz5RM=";
       "fastframe-emoji-0.2.1" = "sha256-3FFLQSfaMw8KHdvfFAWSeXFoDROGeyhQ7oMR0ZM9uEc=";
       "hyper-proxy2-0.1.0" = "sha256-eyTslearajU7p/BfcSDByf/KbCeu+09WPwoJNr/7x6M=";
