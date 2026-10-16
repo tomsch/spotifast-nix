@@ -95,3 +95,9 @@ inside the Nix sandbox, not installed separately on the CI runner.
 This packaging is MIT licensed. Spotifast itself is
 [MIT licensed](https://github.com/crmne/spotifast/blob/main/LICENSE) by its
 authors.
+
+## Packaging compatibility
+
+Older releases install a legacy `fastpotify` command. Packaging removes it when
+present and also supports newer releases that only install `spotifast` (see
+[upstream Cargo targets](https://github.com/crmne/spotifast/blob/v0.13.3/Cargo.toml)).

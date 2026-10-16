@@ -23,24 +23,24 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "spotifast";
-  version = "0.11.2";
+  version = "0.13.3";
 
   src = fetchFromGitHub {
     owner = "crmne";
     repo = "spotifast";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-4hseXK3dvXL6fBNDuQ2sq8wrtpRqSRZPErgCixPdt50=";
+    hash = "sha256-tYncFZI6m7W+ACj9wizmQUrFktDI3SR9dSQ0uS7iIg0=";
   };
 
   cargoLock = {
     lockFile = ./Cargo.lock;
     outputHashes = {
-      "dpi-0.1.1" = "sha256-JDMY4rnmfar/6wvzRHVPi7tH5wYGeTDd3KvkftQAEtc=";
-      "ecolor-0.36.1" = "sha256-uzNVqMeYdLI9jqvPxdsmOkJC17GiPWU0BpJ+aqDz5RM=";
-      "fastframe-emoji-0.2.1" = "sha256-3FFLQSfaMw8KHdvfFAWSeXFoDROGeyhQ7oMR0ZM9uEc=";
+      "dpi-0.1.1" = "sha256-5ioLeQqbyXFgbsE3Iik/FgtHYSIFv+35hGjP8UMQl9k=";
+      "ecolor-0.36.1" = "sha256-jF+5LjNkGAvdlwstYPVMIj0KKnnxHqpbcjC2ZgsUmoo=";
+      "fastframe-audio-0.6.0" = "sha256-wGZuxLe2xpLszKppzTgoNVQbZ/21LcScJ5vDiq3imjw=";
       "hyper-proxy2-0.1.0" = "sha256-eyTslearajU7p/BfcSDByf/KbCeu+09WPwoJNr/7x6M=";
-      "librespot-audio-0.8.0" = "sha256-k8jIqse6BDzkKefoyqTg78GmWGCSu7zeR7/7eehub18=";
-      "projectm-sys-1.2.3" = "sha256-btM3/MJ3jP3fvmdYO23sOiELhfpl2tPGnPVOZp4phIM=";
+      "librespot-audio-0.8.0" = "sha256-i27N6piZU3M/jnSXUhstMko96CwHFAT4Fb08Y0AdKTs=";
+      "projectm-sys-1.2.3" = "sha256-en0QJbg2oshnM5dfhGHVEJd9ibaIGWzIQjNNR25dhDs=";
     };
   };
 
@@ -105,8 +105,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   ];
 
   postInstall = ''
-    # Upstream tests need both commands; only install the primary command.
-    rm "$out/bin/fastpotify"
+    # Older releases also install the legacy command; newer releases omit it.
+    rm -f "$out/bin/fastpotify"
     wrapProgram $out/bin/spotifast \
       --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath finalAttrs.runtimeLibs}
 
