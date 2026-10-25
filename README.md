@@ -37,9 +37,9 @@ nix build github:tomsch/spotifast-nix#spotifast
 ## Notes
 
 - Requires a Rust toolchain able to build edition 2024 crates (nixpkgs
-  `rustPlatform` on `nixos-unstable` is sufficient; upstream's MSRV is 1.95).
-- Audio: ALSA and PulseAudio (covers PipeWire) are linked directly by
-  librespot's rodio backend.
+  `rustPlatform` on `nixos-unstable` is sufficient; upstream's MSRV is 1.98).
+- Audio: ALSA, PulseAudio, and PipeWire are provided as native build
+  dependencies for the audio backends.
 - Display: OpenGL, libxkbcommon, Wayland, and X11 (`libX11`, `libXcursor`,
   `libXrandr`, `libXi`) are loaded at runtime via `dlopen`, not linked, and
   are provided through `LD_LIBRARY_PATH` in the wrapped binary.

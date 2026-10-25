@@ -12,6 +12,7 @@
   dbus,
   alsa-lib,
   libpulseaudio,
+  pipewire,
   libxkbcommon,
   wayland,
   libGL,
@@ -23,23 +24,24 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "spotifast";
-  version = "0.13.3";
+  version = "0.14.1";
 
   src = fetchFromGitHub {
     owner = "crmne";
     repo = "spotifast";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-tYncFZI6m7W+ACj9wizmQUrFktDI3SR9dSQ0uS7iIg0=";
+    hash = "sha256-RYeHaD3c5UfkF3f7dsfMlyKNL4u2CPBO2Zxq0bUg5x0=";
   };
 
   cargoLock = {
     lockFile = ./Cargo.lock;
     outputHashes = {
-      "dpi-0.1.1" = "sha256-5ioLeQqbyXFgbsE3Iik/FgtHYSIFv+35hGjP8UMQl9k=";
-      "ecolor-0.36.1" = "sha256-jF+5LjNkGAvdlwstYPVMIj0KKnnxHqpbcjC2ZgsUmoo=";
-      "fastframe-audio-0.6.0" = "sha256-wGZuxLe2xpLszKppzTgoNVQbZ/21LcScJ5vDiq3imjw=";
+      "cpal-0.18.2" = "sha256-ntJYSSipB0YyIpZ+zsJi0LXwtYcuBZbJHrZtGD5r4iw=";
+      "dpi-0.1.1" = "sha256-zUErcFIlDxOtA8lnP4vHp6DHxsUziyXz9e1IIWnXq/U=";
+      "ecolor-0.36.2" = "sha256-2InNvJTXd6du0Rux4BpZsPXY0lbf6sPlTxDYVtWJbjE=";
+      "fastframe-audio-0.14.0" = "sha256-bKbq/Q3wrLXomtnDOe0UYcNcbNsGFYCWNc8v0TQL5Ds=";
       "hyper-proxy2-0.1.0" = "sha256-eyTslearajU7p/BfcSDByf/KbCeu+09WPwoJNr/7x6M=";
-      "librespot-audio-0.8.0" = "sha256-i27N6piZU3M/jnSXUhstMko96CwHFAT4Fb08Y0AdKTs=";
+      "librespot-audio-0.8.0" = "sha256-A7Q60bzYnJKNqljReo0R0aoc1YO4BhR6sgJIID+C6jk=";
       "projectm-sys-1.2.3" = "sha256-en0QJbg2oshnM5dfhGHVEJd9ibaIGWzIQjNNR25dhDs=";
     };
   };
@@ -83,11 +85,12 @@ rustPlatform.buildRustPackage (finalAttrs: {
     export SSL_CERT_FILE=${cacert}/etc/ssl/certs/ca-bundle.crt
   '';
 
-  # librespot's rodio audio backend links ALSA and PulseAudio (which covers
-  # PipeWire) directly; projectM links OpenGL and uses X11 headers.
+  # Audio backends link ALSA, PulseAudio, and PipeWire directly;
+  # projectM links OpenGL and uses X11 headers.
   buildInputs = [
     alsa-lib
     libpulseaudio
+    pipewire
     libGL
     libx11
   ];
