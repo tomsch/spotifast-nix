@@ -24,13 +24,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "spotifast";
-  version = "0.14.2";
+  version = "0.15.0";
 
   src = fetchFromGitHub {
     owner = "crmne";
     repo = "spotifast";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-LdhBPj7ZrXXMvQpM/DqYH5m7zH7duTZ/tZbHO3XI5CQ=";
+    hash = "sha256-tzB8AhEnc05QEAguoqPHGNDa35kSmJKHoysLfC7CgsU=";
   };
 
   cargoLock = {
@@ -39,7 +39,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
       "cpal-0.18.2" = "sha256-ntJYSSipB0YyIpZ+zsJi0LXwtYcuBZbJHrZtGD5r4iw=";
       "dpi-0.1.1" = "sha256-zUErcFIlDxOtA8lnP4vHp6DHxsUziyXz9e1IIWnXq/U=";
       "ecolor-0.36.2" = "sha256-2InNvJTXd6du0Rux4BpZsPXY0lbf6sPlTxDYVtWJbjE=";
-      "fastframe-audio-0.14.0" = "sha256-bKbq/Q3wrLXomtnDOe0UYcNcbNsGFYCWNc8v0TQL5Ds=";
+      "fastframe-audio-0.15.2" = "sha256-seh25FIkSPBf7cZnvKwtxvMSCYYmfm7bC+E18V9A/O4=";
       "hyper-proxy2-0.1.0" = "sha256-eyTslearajU7p/BfcSDByf/KbCeu+09WPwoJNr/7x6M=";
       "librespot-audio-0.8.0" = "sha256-WQcwAwJareTxWn519vdnPuCdWaPag/k0/AwomFhKpGw=";
       "projectm-sys-1.2.3" = "sha256-en0QJbg2oshnM5dfhGHVEJd9ibaIGWzIQjNNR25dhDs=";
