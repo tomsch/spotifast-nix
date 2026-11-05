@@ -24,13 +24,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "spotifast";
-  version = "0.17.0";
+  version = "0.17.1";
 
   src = fetchFromGitHub {
     owner = "crmne";
     repo = "spotifast";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-jOESMVbwrxVkz6TRvy2RSK/bIPJC4DUkdVNsF22snr8=";
+    hash = "sha256-6BJpFjv0xSSQnk9/xRtsShsKUHup7uRDACPQLSKdwgg=";
   };
 
   cargoLock = {
