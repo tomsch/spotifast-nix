@@ -24,24 +24,24 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "spotifast";
-  version = "0.17.1";
+  version = "0.17.2";
 
   src = fetchFromGitHub {
     owner = "crmne";
     repo = "spotifast";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-6BJpFjv0xSSQnk9/xRtsShsKUHup7uRDACPQLSKdwgg=";
+    hash = "sha256-ccMYbLHgoHYzb+ikQgfegheLNTB6t6Bx7o9VAoqlPCg=";
   };
 
   cargoLock = {
     lockFile = ./Cargo.lock;
     outputHashes = {
       "cpal-0.18.2" = "sha256-ntJYSSipB0YyIpZ+zsJi0LXwtYcuBZbJHrZtGD5r4iw=";
-      "dpi-0.1.1" = "sha256-zUErcFIlDxOtA8lnP4vHp6DHxsUziyXz9e1IIWnXq/U=";
-      "ecolor-0.36.2" = "sha256-2InNvJTXd6du0Rux4BpZsPXY0lbf6sPlTxDYVtWJbjE=";
-      "fastframe-audio-0.15.4" = "sha256-EW8bwDa6P8YUyMl8dn+Ue1CIZuYphwSos02t+v7Wkcw=";
+      "dpi-0.1.1" = "sha256-hK2A6bbFZUGD9hU+kG+ZedBtix5cLrrVH4uwUEBSD+Y=";
+      "ecolor-0.36.2" = "sha256-ogyXNG2UAN1KhjMjK5NwuyYSPgLv4kWLmaa96qWc+mk=";
+      "fastframe-audio-0.16.1" = "sha256-K68YYtvzy49q96N8FLBWKDHChGuF4I0D/ux2bZyMgOo=";
       "hyper-proxy2-0.1.0" = "sha256-eyTslearajU7p/BfcSDByf/KbCeu+09WPwoJNr/7x6M=";
-      "librespot-audio-0.8.0" = "sha256-WQcwAwJareTxWn519vdnPuCdWaPag/k0/AwomFhKpGw=";
+      "librespot-audio-0.8.0" = "sha256-rfsKS8MVdG81CJ/AT88pLlxPzgDkPmEL8Qi8LLrd4H8=";
       "projectm-sys-1.2.3" = "sha256-en0QJbg2oshnM5dfhGHVEJd9ibaIGWzIQjNNR25dhDs=";
     };
   };
